@@ -1,4 +1,4 @@
-{% comment %} <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -10,17 +10,15 @@
     <meta name="author" content="Your Name" />
     <title>Basic HTML Template</title>
     <link rel="stylesheet" href="styles.css" />
-    <!-- Link to your CSS file -->
   </head>
   <body>
-    <script src="script.js"></script>
-    <!-- Link to your JavaScript file -->
+    {% for item in item_list %}
+    <ul>
+      {% comment %} <a href="/food/{{ item.id }}"> {% endcomment %}
+        <a href="{% url 'detail_view' item.id %}">
+        <li>{{ item.id }} -- {{ item.item_name }}</li>
+      </a>
+    </ul>
+    {%endfor %}
   </body>
 </html>
-{% endcomment %} {% for item in item_list %}
-
-<ul>
-  <li>{{ item.id }} -- {{ item.item_name }}</li>
-</ul>
-
-{%endfor %}

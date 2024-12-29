@@ -1,7 +1,11 @@
 from django.urls import path
-from .views import index, item
+from .views import index, item, detail_view
 
 urlpatterns = [
-    path('', index, name='index'),
-    path('item/', item, name='item'),
+  #/food
+  path('', index, name='index'),
+  #/food/1
+  path('<int:item_id>/', detail_view, name='detail_view'),
+  
+  path('item/', item, name='item'),
 ]
